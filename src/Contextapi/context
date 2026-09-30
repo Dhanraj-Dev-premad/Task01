@@ -1,0 +1,21 @@
+// ThemeContext.js
+import { createContext, useState } from 'react';
+
+// 1. Create the Context object
+export const ThemeContext = createContext();
+
+// 2. Create a Provider component
+export const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState('light');
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+  };
+
+  return (
+    // In modern React, you can wrap children directly in the Context object
+    <ThemeContext value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext>
+  );
+};
