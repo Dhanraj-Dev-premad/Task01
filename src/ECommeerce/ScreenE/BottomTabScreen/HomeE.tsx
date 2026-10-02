@@ -1,5 +1,6 @@
 import {
   Image,
+  Pressable,
   ScrollView,
   StyleSheet,
   Text,
@@ -9,8 +10,10 @@ import {
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import CategoriesCard from '../../Component/CategoriesCard'
+import { useNavigation } from '@react-navigation/native'
 
-const HomeE = () => {
+const HomeE = ({navigation}) => {
+  // const navigation=useNavigation();
 
   // PRODUCT DATA
 
@@ -341,18 +344,21 @@ const HomeE = () => {
 
           {/* PRODUCT   */}
 
-          <View style={styles.ProductGrid}>
+         <View style={styles.ProductGrid}>
+             {ProductData?.map(data => (
+               <Pressable
+                  key={data.id}
+              onPress={()=>{
+                console.log("on press called");
+                
+                navigation.navigate('ProductDetailsComp')
 
-            {ProductData.map(data => (
-
-              <CategoriesCard
-                key={data.id}
-                data={data}
-              />
-
-            ))}
-
-          </View>
+              }}
+         >
+                 <CategoriesCard data={data} />
+               </Pressable>
+                 ))}
+         </View>
 
         </View>
 
@@ -515,14 +521,16 @@ const styles = StyleSheet.create({
 
   CategoriesBox: {
     height: 130,
-    width: 387,
+    width: '100%',
     position: 'absolute',
     top: 145,
-    marginLeft: 30,
+   
+   // backgroundColor:'yellow',
+
   },
 
   TextPopularContainer: {
-    marginLeft: 10,
+    marginLeft: 40,
   },
 
   TextPopular: {
@@ -532,6 +540,10 @@ const styles = StyleSheet.create({
   },
 
   ScrollViewContainer: {
+    position:'absolute',
+    zIndex:5,
+    top:20,
+    
     height: 130,
   },
 
