@@ -12,3 +12,22 @@ const TestScreenE = () => {
 export default TestScreenE
 
 const styles = StyleSheet.create({})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

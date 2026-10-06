@@ -203,6 +203,7 @@ const Cart = () => {
       </ScrollView>
       <View style={styles.CheckOutContainer}>
           <Pressable
+          onPress={()=>navigation.navigate('CheckOutScreen')}
           style={styles.checkOutButton}
           >
             <Text style={styles.checkoutText}>Checkout </Text>

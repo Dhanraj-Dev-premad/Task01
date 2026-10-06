@@ -1,8 +1,10 @@
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 
 const ProductImageScreen = () => {
+    const route = useRoute();
+       const { data } = route.params ;
     const navigation=useNavigation();
   return (
     <View>
@@ -10,7 +12,8 @@ const ProductImageScreen = () => {
              <Image
              
                   style={styles.ProductImage}
-                  source={require('../../AssetsE/Img/ProductDetails/Shoes1.png')}
+                   source={data}
+                  //source={require('../../AssetsE/Img/ProductDetails/Shoes1.png')}
                 />
                 <Pressable
                 onPress={()=>{navigation.goBack()}}
@@ -40,7 +43,10 @@ const styles = StyleSheet.create(
       
         ProductImage:{
             marginTop:'40%',
-            marginBottom:20
+            marginBottom:20,
+            height:280,
+            width:300,
+            //backgroundColor:'yellow'
 
 
         },

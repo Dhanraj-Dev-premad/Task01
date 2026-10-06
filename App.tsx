@@ -6,11 +6,19 @@ import {
 } from 'react-native';
 
 import BootSplash from 'react-native-bootsplash';
-import RootNavigationE from './src/ECommeerce/NavigationE/RootNavigationE';
+import EditProfileScreenE from './src/ECommeerce/ScreenE/ProfileScreens/EditProfile';
+import ChangeNameScreen from './src/ECommeerce/ScreenE/ProfileScreens/ChangeName';
+import AddNewAddressScreenE from './src/ECommeerce/ScreenE/ProfileScreens/AddNewAddress';
+import MyOrdersScreenE from './src/ECommeerce/ScreenE/ProfileScreens/MyOrders';
 import { AuthProvider } from './src/ECommeerce/Context/AuthContextE';
 import { NavigationContainer } from '@react-navigation/native';
-import CategoriesCard from './src/ECommeerce/Component/CategoriesCard';
-
+import RootNavigationE from './src/ECommeerce/NavigationE/RootNavigationE';
+import StoreE from './src/ECommeerce/ScreenE/BottomTabScreen/StoreE';
+import BrandE from './src/ECommeerce/ScreenE/BarandScreen/BrandScreenE';
+import BrandProductsE from './src/ECommeerce/ScreenE/BarandScreen/BrandProductsE';
+import BrandScreenE from './src/ECommeerce/ScreenE/BarandScreen/BrandScreenE';
+import { ProductProvider } from './src/ECommeerce/Context/ProductContextApi';
+import { WishListProvider } from './src/ECommeerce/Context/WishListContext';
 
 
 
@@ -39,13 +47,26 @@ const App = () => {
         animated={true}
         barStyle="dark-content"
       />
-      {/* <CategoriesCard/> */}
+      
       <AuthProvider>
            <NavigationContainer>
-               <RootNavigationE />
+              <WishListProvider>
+                <ProductProvider>
+                     <RootNavigationE />                 
+               </ProductProvider>   
+
+              </WishListProvider>
+
+                  
           </NavigationContainer>
       </AuthProvider>
- 
+
+    
+
+
+      
+
+      
       
 {/* 
       <AuthProvider>

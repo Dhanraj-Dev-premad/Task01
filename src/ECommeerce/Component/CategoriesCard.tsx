@@ -2,9 +2,25 @@ import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import MaterialDesignIcons from '@react-native-vector-icons/material-design-icons'
 import { useNavigation } from '@react-navigation/native'
+import { useWishList } from '../Context/WishListContext'
 
-const CategoriesCard = ({ data }) => {
-  
+const CategoriesCard = ({ products }) => {
+
+  const { isFavorite, addToWishList, deleteFromWishList } = useWishList();
+
+const alreadyFavorite = isFavorite.some(
+  item => item.id === products.id
+);
+
+const handleFavorite = () => {
+  console.log('entered handleFavorite');
+
+  if (alreadyFavorite) {
+    deleteFromWishList(products.id);
+  } else {
+    addToWishList(products);
+  }
+};
   
   return (
     <View style={styles.MainContainer}>
@@ -19,7 +35,7 @@ const CategoriesCard = ({ data }) => {
         <View style={styles.ImgItemContainer}>
           <Image
             style={styles.PhoneImage}
-            source={data.image}
+            source={products.image}
             resizeMode="contain"
           />
         </View>
@@ -27,18 +43,33 @@ const CategoriesCard = ({ data }) => {
         {/* Discount */}
         <View style={styles.discountContainer}>
           <Text style={styles.discountText}>
-            {data.discount}
+            {products.discount}
           </Text>
         </View>
 
         {/* Like Button */}
-        <View style={styles.likeContainer}>
-          <Image
-            style={styles.likeImage}
+        <Pressable style={styles.likeContainer}
+        onPress={handleFavorite}
+        
+        >
+       
+          <MaterialDesignIcons
+             name={alreadyFavorite ? 'heart' : 'heart-outline'}
+             size={24}
+             color={alreadyFavorite ? 'red' : 'gray'}
+          />
+
+
+
+
+
+
+          {/* <Image
+            style={[styles.likeImage,{backgroundColor: isFavorite ? 'red' : 'gray'}]}
             source={require('../AssetsE/Img/ComponentImg/heart.png')}
             resizeMode="contain"
-          />
-        </View>
+          /> */}
+        </Pressable>
 
         {/* Product Information */}
         <View style={styles.ProductNameContainer}>
@@ -47,15 +78,16 @@ const CategoriesCard = ({ data }) => {
           <Text
             style={styles.TextProductName}
             numberOfLines={1}
+
           >
-            {data.productName}
+            {products.productName}
           </Text>
 
           {/* Company Name + Verified Icon */}
           <View style={styles.ProductCompanyName}>
 
             <Text style={styles.TextProductCompanyName}>
-              {data.companyName}
+              {products.companyName}
             </Text>
 
             <MaterialDesignIcons
@@ -71,7 +103,7 @@ const CategoriesCard = ({ data }) => {
         {/* Price */}
         <View style={styles.PriceContainer}>
           <Text style={styles.TextPrice}>
-            {data.price}
+            {products.price}
           </Text>
         </View>
 
@@ -80,7 +112,7 @@ const CategoriesCard = ({ data }) => {
 
           <Pressable
             style={styles.AddButton}
-            onPress={() => console.log(`${data.productName} Plus pressed`)}
+            onPress={() => console.log(`${products.productName} Plus pressed`)}
           >
             <MaterialDesignIcons
               name="plus"
@@ -192,6 +224,9 @@ const styles = StyleSheet.create({
   likeImage: {
     height: 20,
     width: 20,
+    
+    
+  
   },
 
   /* ---------------- PRODUCT NAME ---------------- */

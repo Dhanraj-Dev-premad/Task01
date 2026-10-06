@@ -9,7 +9,14 @@ import Cart from '../ScreenE/CartScreens/Cart';
 import CheckOutScreen from '../ScreenE/CartScreens/CheckOutScreen';
 import SelectPaymentMethodScreen from '../ScreenE/CartScreens/SelectPaymentMethodScreen';
 import SelectAddress from '../ScreenE/CartScreens/SelectAddress';
-import PaymentSuccess from '../ScreenE/CartScreens/PaymentSuccess';
+import BrandProductsE from '../ScreenE/BarandScreen/BrandProductsE';
+import EditProfileScreenE from '../ScreenE/ProfileScreens/EditProfile';
+import ChangeNameScreenE from '../ScreenE/ProfileScreens/ChangeName';
+import AddNewAddressScreenE from '../ScreenE/ProfileScreens/AddNewAddress';
+import MyOrdersScreenE from '../ScreenE/ProfileScreens/MyOrders';
+import PaymentSuccessE from '../ScreenE/CartScreens/PaymentSuccessE';
+import AddressE from '../ScreenE/ProfileScreens/Addresses';
+import BrandScreenE from '../ScreenE/BarandScreen/BrandScreenE';
 
 
 
@@ -63,29 +70,104 @@ const StackNaviagtionE = () => {
 
       />
 
+
+
       <stack.Screen
-      name='SelectPaymentMethodScreen'
-      component={SelectPaymentMethodScreen}
-      options={{title:'SelectPaymentMethodScreen',headerShown:false}}
+  name="SelectPaymentMethodScreen"
+  component={SelectPaymentMethodScreen}
+  options={{
+    headerShown: false,
+    presentation: 'transparentModal',
+    animation: 'fade',
+    contentStyle: {
+      backgroundColor: 'transparent',
+    },
+    gestureEnabled: true,
+  }}
+/>
+
+<stack.Screen
+  name="SelectAddress"
+  component={SelectAddress}
+  options={{
+    headerShown: false,
+    presentation: 'transparentModal',
+    animation: 'fade',
+    contentStyle: {
+      backgroundColor: 'transparent',
+    },
+    gestureEnabled: true,
+  }}
+  />
+
+   <stack.Screen
+      name='PaymentSuccessE'
+      component={PaymentSuccessE}
+      options={{title:'PaymentSuccessE',headerShown:false}}
+      
+
+      />
+      <stack.Screen
+      name='BrandScreenE'
+      component={BrandScreenE}
+      options={{title:'BrandScreenE',headerShown:false}}
+      
+
+      />
+       <stack.Screen
+      name='BrandProductsE'
+      component={BrandProductsE}
+      options={{title:'BrandProductsE',headerShown:false}}
+      
+
+      />
+
+       <stack.Screen
+      name='EditProfileScreenE'
+      component={EditProfileScreenE}
+      options={{title:'EditProfileScreenE',headerShown:false}}
       
 
       />
       
-      <stack.Screen
-      name='SelectAddress'
-      component={SelectAddress}
-      options={{title:'SelectAddress',headerShown:false}}
+ <stack.Screen
+      name='ChangeNameScreenE'
+      component={ChangeNameScreenE}
+      options={{title:'ChangeNameScreenE',headerShown:false}}
       
 
       />
       
-      <stack.Screen
-      name='PaymentSuccess'
-      component={PaymentSuccess}
-      options={{title:'PaymentSuccess',headerShown:false}}
+
+       <stack.Screen
+      name='AddNewAddressScreenE'
+      component={AddNewAddressScreenE}
+      options={{title:'AddNewAddressScreenE',headerShown:false}}
       
 
       />
+
+
+      <stack.Screen
+      name='AddressE'
+      component={AddressE}
+      options={{title:'AddressE',headerShown:false}}
+      
+
+      />
+      
+
+      <stack.Screen
+      name='MyOrdersScreenE'
+      component={MyOrdersScreenE}
+      options={{title:'MyOrdersScreenE',headerShown:false}}
+      
+
+      />
+
+
+
+
 
 
 

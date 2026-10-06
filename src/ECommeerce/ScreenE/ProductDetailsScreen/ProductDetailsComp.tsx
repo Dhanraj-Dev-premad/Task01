@@ -9,8 +9,8 @@ import { useNavigation } from '@react-navigation/native'
 import { useRoute } from '@react-navigation/native';
 
 const ProductDetailsComp = () => {
-//   const route = useRoute();
-//   const { data } = route.params ;
+   const route = useRoute();
+   const { data } = route.params ;
 const navigation=useNavigation();
 
   return (
@@ -56,12 +56,13 @@ const navigation=useNavigation();
         <View style={styles.mainContainer}>
           <View style={styles.ProductImageConatiner}>
             <Pressable
-            onPress={()=>navigation.navigate("ProductImageScreen")}
+            onPress={()=>navigation.navigate("ProductImageScreen",{data:data.image})}
             
             >
                  <Image
                   style={styles.ProductImage}
-                  source={require('../../AssetsE/Img/ProductDetails/Shoes1.png')}
+                  source={data.image}
+                  //source={require('../../AssetsE/Img/ProductDetails/Shoes1.png')}
                 />
 
             </Pressable>
@@ -72,12 +73,12 @@ const navigation=useNavigation();
 
                 <View style={styles.RateBox}>
                     <View style={styles.discountContainer}>
-                          <Text style={styles.discountText}>49%</Text>
+                          <Text style={styles.discountText}>{data.discount}</Text>
                           
                     </View>
                   {/* Price */}
                     <View style={styles.PriceContainer}>
-                         <Text style={styles.TextPrice}>$599</Text>
+                         <Text style={styles.TextPrice}>{data.price}</Text>
                     </View>
                     
 
@@ -103,7 +104,7 @@ const navigation=useNavigation();
 
                 <View style={styles.ProductDetailsContainer}>
                     <View style={styles.ProductNameContainer}>
-                        <Text style={{fontSize:22,fontWeight:'bold'}}>Blue Shoes of Nike</Text>
+                        <Text style={{fontSize:22,fontWeight:'bold'}}>{data.productName}</Text>
 
                     </View>
                     <View style={styles.StockContainer}>
@@ -119,7 +120,7 @@ const navigation=useNavigation();
                                   style={styles.brandImage}
                                   source={require('../../AssetsE/Img/ProductDetails/bata.png')}
                                 />  
-                               <Text style={{fontSize:19,fontWeight:'bold'}}>Bata</Text>
+                               <Text style={{fontSize:19,fontWeight:'bold'}}>{data.companyName}</Text>
                    
                                <MaterialDesignIcons
                                  name="check-circle"
