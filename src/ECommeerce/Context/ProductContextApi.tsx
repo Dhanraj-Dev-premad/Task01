@@ -20,6 +20,7 @@ const [products, setProducts] = useState([
     color: 'Black',
     storage: '64GB',
     size: '6.1 inch',
+    
     price: '$399',
     originalPrice: '$499',
     stock: 12,

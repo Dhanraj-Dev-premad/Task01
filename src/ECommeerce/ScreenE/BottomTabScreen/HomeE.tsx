@@ -7,14 +7,17 @@ import {
   TextInput,
   View,
 } from 'react-native'
-import React from 'react'
+import React, { useContext } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import CategoriesCard from '../../Component/CategoriesCard'
 import { useNavigation } from '@react-navigation/native'
 import { useProduct } from '../../Context/ProductContextApi'
+import { AuthContext } from '../../Context/AuthContextE'
 
 const HomeE = () => {
   const {products} = useProduct();
+
+  const {user} = useContext(AuthContext);
     const navigation=useNavigation();
 
   // PRODUCT DATA
@@ -232,7 +235,7 @@ const HomeE = () => {
               </Text>
 
               <Text style={styles.NameProText}>
-                Unknown Pro
+                {user.firstName} {user?.lastName}
               </Text>
             </View>
 

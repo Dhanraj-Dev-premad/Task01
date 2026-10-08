@@ -13,6 +13,12 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		3230F24DE7874C3FADCB4010 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6E1E894B73D491B9410B7E6 /* BootSplash.storyboard */; };
 		2001607A091E4F9A84E640B2 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04F516D1B3C4F329C8A8B86 /* Colors.xcassets */; };
+		69D856C9D2874718ADF18602 /* BlackOpsOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 838C3BCDB13B4E9E910FA64E /* BlackOpsOne-Regular.ttf */; };
+		DE001A4A824D495BA7A880A3 /* Inter_18pt-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4783B38CE4294BD1B3B2E432 /* Inter_18pt-Bold.ttf */; };
+		01B3246A4BCD45B1A789376F /* Inter_18pt-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 94152DBC291445BA9E8214D7 /* Inter_18pt-Medium.ttf */; };
+		65B53EDA849D44AEB8A94823 /* Inter_18pt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACF3B1F769F6452A8FD093AA /* Inter_18pt-Regular.ttf */; };
+		D22D3D70927F46D08116A5B7 /* Inter_18pt-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74E08AAC5C534F9BB7EBC2CB /* Inter_18pt-SemiBold.ttf */; };
+		217CC2DF208D4D99B5E609E6 /* Isometra-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BE846602D084BCA8F75030A /* Isometra-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +34,12 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		A6E1E894B73D491B9410B7E6 /* BootSplash.storyboard */ = {isa = PBXFileReference; name = "BootSplash.storyboard"; path = "learnReactNative/BootSplash.storyboard"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		C04F516D1B3C4F329C8A8B86 /* Colors.xcassets */ = {isa = PBXFileReference; name = "Colors.xcassets"; path = "learnReactNative/Colors.xcassets"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = folder.assetcatalog; explicitFileType = undefined; includeInIndex = 0; };
+		838C3BCDB13B4E9E910FA64E /* BlackOpsOne-Regular.ttf */ = {isa = PBXFileReference; name = "BlackOpsOne-Regular.ttf"; path = "../assets/fonts/BlackOps/BlackOpsOne-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4783B38CE4294BD1B3B2E432 /* Inter_18pt-Bold.ttf */ = {isa = PBXFileReference; name = "Inter_18pt-Bold.ttf"; path = "../assets/fonts/inter/Inter_18pt-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		94152DBC291445BA9E8214D7 /* Inter_18pt-Medium.ttf */ = {isa = PBXFileReference; name = "Inter_18pt-Medium.ttf"; path = "../assets/fonts/inter/Inter_18pt-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		ACF3B1F769F6452A8FD093AA /* Inter_18pt-Regular.ttf */ = {isa = PBXFileReference; name = "Inter_18pt-Regular.ttf"; path = "../assets/fonts/inter/Inter_18pt-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		74E08AAC5C534F9BB7EBC2CB /* Inter_18pt-SemiBold.ttf */ = {isa = PBXFileReference; name = "Inter_18pt-SemiBold.ttf"; path = "../assets/fonts/inter/Inter_18pt-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5BE846602D084BCA8F75030A /* Isometra-Regular.ttf */ = {isa = PBXFileReference; name = "Isometra-Regular.ttf"; path = "../assets/fonts/isometra/Isometra-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +92,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				C506210AD6684B63A62F128D /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -102,6 +115,20 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		C506210AD6684B63A62F128D /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				838C3BCDB13B4E9E910FA64E /* BlackOpsOne-Regular.ttf */,
+				4783B38CE4294BD1B3B2E432 /* Inter_18pt-Bold.ttf */,
+				94152DBC291445BA9E8214D7 /* Inter_18pt-Medium.ttf */,
+				ACF3B1F769F6452A8FD093AA /* Inter_18pt-Regular.ttf */,
+				74E08AAC5C534F9BB7EBC2CB /* Inter_18pt-SemiBold.ttf */,
+				5BE846602D084BCA8F75030A /* Isometra-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -167,6 +194,12 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3230F24DE7874C3FADCB4010 /* BootSplash.storyboard in Resources */,
 				2001607A091E4F9A84E640B2 /* Colors.xcassets in Resources */,
+				69D856C9D2874718ADF18602 /* BlackOpsOne-Regular.ttf in Resources */,
+				DE001A4A824D495BA7A880A3 /* Inter_18pt-Bold.ttf in Resources */,
+				01B3246A4BCD45B1A789376F /* Inter_18pt-Medium.ttf in Resources */,
+				65B53EDA849D44AEB8A94823 /* Inter_18pt-Regular.ttf in Resources */,
+				D22D3D70927F46D08116A5B7 /* Inter_18pt-SemiBold.ttf in Resources */,
+				217CC2DF208D4D99B5E609E6 /* Isometra-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

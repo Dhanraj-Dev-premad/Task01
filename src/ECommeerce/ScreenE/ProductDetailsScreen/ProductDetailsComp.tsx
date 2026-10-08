@@ -7,11 +7,35 @@ import { useNavigation } from '@react-navigation/native'
 
 
 import { useRoute } from '@react-navigation/native';
+import { useWishList } from '../../Context/WishListContext'
 
 const ProductDetailsComp = () => {
    const route = useRoute();
    const { data } = route.params ;
 const navigation=useNavigation();
+
+
+
+
+  const { isFavorite, addToWishList, deleteFromWishList } = useWishList();
+
+const alreadyFavorite = isFavorite.some(
+  item => item.id === data.id
+);
+
+const handleFavorite = () => {
+  console.log('entered handleFavorite');
+
+  if (alreadyFavorite) {
+    
+    deleteFromWishList(data.id);
+    
+  } else {
+    addToWishList(data);
+   
+  }
+};
+  
 
   return (
      <SafeAreaView style={styles.safeAreaView}>
@@ -35,14 +59,14 @@ const navigation=useNavigation();
 
                 {/* </View> */}
                 <Pressable 
-                onPress={()=>{console.log("licked licked")}}
+                onPress={handleFavorite}
                 
                 style={styles.heartContainer}>
                     <MaterialDesignIcons
-                        name="heart-outline"
-                        size={30}
-                        color="black"
-                    />
+                                 name={alreadyFavorite ? 'heart' : 'heart-outline'}
+                                 size={24}
+                                 color={alreadyFavorite ? 'red' : 'gray'}
+                              />
 
                 </Pressable>
 

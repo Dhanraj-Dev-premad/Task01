@@ -16,9 +16,12 @@ const handleFavorite = () => {
   console.log('entered handleFavorite');
 
   if (alreadyFavorite) {
+    
     deleteFromWishList(products.id);
+    
   } else {
     addToWishList(products);
+   
   }
 };
   

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import {
   View,
@@ -7,6 +7,7 @@ import {
   Image,
   TouchableOpacity,
   StatusBar,
+  Alert,
 } from 'react-native';
 
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -14,8 +15,26 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import MaterialDesignIcons from '@react-native-vector-icons/material-design-icons';
 
  import {useNavigation} from '@react-navigation/native';
+import { AuthContext } from '../../Context/AuthContextE';
 
 const ProfileE = () => {
+  const {user, logout} = useContext(AuthContext);
+   const handleLogout = async () => {
+
+    try {
+
+      await logout();
+
+    } catch (error) {
+
+      console.log('Logout Error:', error);
+
+      Alert.alert(
+        'Error',
+        'Unable to logout',
+      );
+    }
+  };
   
    const navigation = useNavigation();
 
@@ -64,11 +83,11 @@ const ProfileE = () => {
         <View style={styles.userInfo}>
 
           <Text style={styles.name}>
-            Unknown Pro
+           {user.firstName} {user.lastName}
           </Text>
 
           <Text style={styles.email}>
-            unknownpro@gmail.com
+            {user.gmail}
           </Text>
 
         </View>
@@ -210,9 +229,7 @@ const ProfileE = () => {
       <TouchableOpacity
         style={styles.logoutButton}
         activeOpacity={0.7}
-        onPress={() => {
-        }}
-      >
+        onPress={handleLogout}      >
 
         <Text style={styles.logoutText}>
           Logout

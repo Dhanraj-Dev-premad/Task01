@@ -14,6 +14,9 @@ import {useNavigation} from '@react-navigation/native';
 import {AuthContext} from '../../Context/AuthContextE';
 import CustomCheckBox from '../../../MainComp/CustomCheckBox';
 
+
+
+
 const LoginpageE = () => {
   const navigation = useNavigation();
   const {login} = useContext(AuthContext);
@@ -23,28 +26,63 @@ const LoginpageE = () => {
   const [gmail, setGmail] = useState('');
   const [password, setPassword] = useState('');
 
+
+
+
   const handleLogin = async () => {
-    const email = gmail.trim();
-    const pass = password.trim();
+  const email = gmail.trim();
+  const pass = password.trim();
 
-    if (!email) {
-      Alert.alert('Error', 'Please enter your Gmail');
-      return;
-    }
+  if (!email) {
+    Alert.alert('Error', 'Please enter your Gmail');
+    return;
+  }
 
-    if (!pass) {
-      Alert.alert('Error', 'Please enter your password');
-      return;
-    }
+  if (!pass) {
+    Alert.alert('Error', 'Please enter your password');
+    return;
+  }
 
-    try {
-      await login(email, pass);
-      // RootNavigationE should show the logged-in screens when isLoggedIn becomes true.
-    } catch (error) {
-      console.log('Login error:', error);
-      Alert.alert('Error', 'Something went wrong');
-    }
-  };
+  try {
+    console.log('Login started:', email);
+
+    await login(email, pass);
+
+    console.log('Login successful');
+  } catch (error) {
+    console.log('LOGIN ERROR:', error);
+
+    Alert.alert(
+      'Login Error',
+      error?.message || 'Something went wrong',
+    );
+  }
+};
+
+
+
+//   const handleLogin = async () => {
+//     const email = gmail.trim();
+//     const pass = password.trim();
+
+//     if (!email) {
+//       Alert.alert('Error', 'Please enter your Gmail');
+//       return;
+//     }
+
+//     if (!pass) {
+//       Alert.alert('Error', 'Please enter your password');
+//       return;
+//     }
+
+//     try {
+//       await login(email, pass);
+//       // RootNavigationE should show the logged-in screens when isLoggedIn becomes true.
+//     } catch (error) {
+//       console.log('Login error:', error);
+//       Alert.alert('Error', 'Something went wrong');
+//     }
+//   };
 
   return (
     <SafeAreaView style={styles.safeArea}>

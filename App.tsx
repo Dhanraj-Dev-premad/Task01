@@ -19,6 +19,8 @@ import BrandProductsE from './src/ECommeerce/ScreenE/BarandScreen/BrandProductsE
 import BrandScreenE from './src/ECommeerce/ScreenE/BarandScreen/BrandScreenE';
 import { ProductProvider } from './src/ECommeerce/Context/ProductContextApi';
 import { WishListProvider } from './src/ECommeerce/Context/WishListContext';
+import FreeTest from './src/core-Components/FreeTest';
+
 
 
 
@@ -61,8 +63,12 @@ const App = () => {
           </NavigationContainer>
       </AuthProvider>
 
-    
 
+      {/* <FreeTest/> */}
+
+     
+
+    
 
       
 

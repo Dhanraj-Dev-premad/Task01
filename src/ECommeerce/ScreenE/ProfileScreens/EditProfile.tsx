@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import {
   View,
@@ -13,10 +13,13 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 
 import MaterialDesignIcons from '@react-native-vector-icons/material-design-icons';
 import { useNavigation } from '@react-navigation/native';
+import { AuthContext } from '../../Context/AuthContextE';
 
 
 
 const EditProfileScreenE = () => {
+   const {user} = useContext(AuthContext);
+  
    const navigation = useNavigation();
 
   return (
@@ -91,7 +94,7 @@ const EditProfileScreenE = () => {
         <View style={styles.valueContainer}>
 
           <Text style={styles.value}>
-            Raj Shekhawat
+           {user.firstName} {user.lastName}
           </Text>
 
           <MaterialDesignIcons
@@ -119,7 +122,7 @@ const EditProfileScreenE = () => {
         <View style={styles.valueContainer}>
 
           <Text style={styles.value}>
-            GodNextIn
+            {user.userName}
           </Text>
 
           <MaterialDesignIcons
@@ -191,7 +194,7 @@ const EditProfileScreenE = () => {
         <View style={styles.valueContainer}>
 
           <Text style={styles.value}>
-            GodNextIn@gmail.com
+            {user.gmail}
           </Text>
 
           <MaterialDesignIcons
@@ -219,7 +222,7 @@ const EditProfileScreenE = () => {
         <View style={styles.valueContainer}>
 
           <Text style={styles.value}>
-            +916367412579
+            {user.phoneNo}
           </Text>
 
           <MaterialDesignIcons
@@ -247,7 +250,7 @@ const EditProfileScreenE = () => {
         <View style={styles.valueContainer}>
 
           <Text style={styles.value}>
-            Male
+            {user.gender}
           </Text>
 
           <MaterialDesignIcons
