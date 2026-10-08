@@ -319,7 +319,7 @@ const styles = StyleSheet.create({
 
   // Title and subtitle
   textMainContainer: {
-    height: 70,
+    height: 50,
     width: '100%',
   },
 
@@ -350,18 +350,18 @@ const styles = StyleSheet.create({
   },
 
   inputBox: {
-    height: 60,
-    borderWidth: 2,
+    height: 50,
+    borderWidth: 1,
     borderColor: '#a5a2a2',
-    borderRadius: 18,
+    borderRadius: 9,
     flexDirection: 'row',
   },
    NameBox: {
-    height: 60,
+    height: 50,
     width:173,
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: '#a5a2a2',
-    borderRadius: 18,
+    borderRadius: 9,
     flexDirection: 'row',
   },
 
@@ -370,19 +370,19 @@ const styles = StyleSheet.create({
     width: 25,
     opacity: 0.3,
     marginLeft: 10,
-    marginTop: 15,
+    marginTop: 12,
   },
 
   textInput: {
     flex: 1,
     color: 'black',
-    fontSize: 22,
+    fontSize: 18,
     paddingLeft: 25,
   },
   NametextInput: {
     flex: 1,
     color: 'black',
-    fontSize: 22,
+    fontSize: 18,
    alignSelf:'center',
    marginLeft:8,
   },
@@ -443,7 +443,7 @@ const styles = StyleSheet.create({
   },
 
   signInButton: {
-    height: 60,
+    height: 55,
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',

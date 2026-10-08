@@ -7,14 +7,19 @@ import {
   ScrollView,
   TouchableOpacity,
   Image,
+  Pressable,
 } from 'react-native';
 
 import MaterialDesignIcons from '@react-native-vector-icons/material-design-icons';
 
 import BrandCard from '../../Component/BrandCard';
 import CategoriesCard from '../../Component/CategoriesCard';
+import { useNavigation } from '@react-navigation/native';
+import { useProduct } from '../../Context/ProductContextApi';
 
 const BrandProductsE = (data) => {
+  const navigation =useNavigation();
+   const {products} = useProduct();
 
   
   // BRAND DATA
@@ -28,61 +33,7 @@ const BrandProductsE = (data) => {
 
   // PRODUCT DATA
 
-  const products = [
-    {
-      id: 1,
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '9%',
-      productName: 'Shoes of Nike',
-      companyName: 'Nike',
-      price: '$399',
-    },
 
-    {
-      id: 2,
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '9%',
-      productName: 'Shoes of Nike',
-      companyName: 'Nike',
-      price: '$399',
-    },
-
-    {
-      id: 3,
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '9%',
-      productName: 'Shoes of Nike',
-      companyName: 'Nike',
-      price: '$399',
-    },
-
-    {
-      id: 4,
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '9%',
-      productName: 'Shoes of Nike',
-      companyName: 'Nike',
-      price: '$399',
-    },
-
-    {
-      id: 5,
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '9%',
-      productName: 'Shoes of Nike',
-      companyName: 'Nike',
-      price: '$399',
-    },
-
-    {
-      id: 6,
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '9%',
-      productName: 'Shoes of Nike',
-      companyName: 'Nike',
-      price: '$399',
-    },
-  ];
 
   return (
     <View style={styles.container}>
@@ -189,18 +140,24 @@ const BrandProductsE = (data) => {
             PRODUCT GRID
          */}
 
-        <View style={styles.productGrid}>
+          <View style={styles.productGrid}>
+             {products?.map(data => (
+               <Pressable
+                  key={data.id}
+              onPress={()=>{
+                console.log("on press called");
+                
+                navigation.navigate('ProductDetailsComp',{data:data})
 
-          {products.map(item => (
 
-            <CategoriesCard
-              key={item.id}
-              data={item}
-            />
+         
 
-          ))}
-
-        </View>
+              }}
+               >
+                    <CategoriesCard products={data} />              
+               </Pressable>
+                 ))}
+         </View>
 
       </ScrollView>
 

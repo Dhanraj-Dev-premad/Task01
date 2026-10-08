@@ -14,6 +14,7 @@ import MaterialDesignIcons from '@react-native-vector-icons/material-design-icon
 import CategoriesCard from '../../Component/CategoriesCard';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
+import { useProduct } from '../../Context/ProductContextApi';
 
 
 const StoreE = () => {
@@ -23,79 +24,8 @@ const StoreE = () => {
   // PRODUCTS FOR CATEGORIES CARD
 
 
-  const products = [
-    {
-      id: 1,
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '9%',
-      productName: 'iPhone 11',
-      companyName: 'Bata',
-      price: '$120',
-    },
+  const {products} = useProduct();
 
-    {
-      id: 2,
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '9%',
-      productName: 'Running Shoes',
-      companyName: 'Nike',
-      price: '$95',
-    },
-
-    {
-      id: 3,
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '15%',
-      productName: 'Pink Shirt',
-      companyName: 'Bata',
-      price: '$80',
-    },
-
-    {
-      id: 4,
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '12%',
-      productName: 'Smart Phone',
-      companyName: 'Nike',
-      price: '$150',
-    },
-
-     {
-      id: 5,
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '9%',
-      productName: 'iPhone 11',
-      companyName: 'Bata',
-      price: '$120',
-    },
-
-    {
-      id: 6,
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '9%',
-      productName: 'Running Shoes',
-      companyName: 'Nike',
-      price: '$95',
-    },
-
-    {
-      id: 7,
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '15%',
-      productName: 'Pink Shirt',
-      companyName: 'Bata',
-      price: '$80',
-    },
-
-    {
-      id: 8,
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '12%',
-      productName: 'Smart Phone',
-      companyName: 'Nike',
-      price: '$150',
-    },
-  ];
 
 
   // SCREEN
@@ -530,18 +460,26 @@ const StoreE = () => {
           showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.productList}
           > */}
-            <View  style={styles.ProductGrid}>
-               {products.map((item) => (
+          
 
-              <CategoriesCard
-                key={item.id}
-                data={item}
-              />
+             <View style={styles.ProductGrid}>
+             {products?.map(data => (
+               <Pressable
+                  key={data.id}
+              onPress={()=>{
+                console.log("on press called");
+                
+                navigation.navigate('ProductDetailsComp',{data:data})
 
-            ))}
 
+         
 
-            </View>
+              }}
+               >
+                    <CategoriesCard products={data} />              
+               </Pressable>
+                 ))}
+         </View>
 
 {/*            
           </ScrollView> */}

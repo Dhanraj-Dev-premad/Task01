@@ -174,16 +174,16 @@ const styles = StyleSheet.create({
 
   // Text inputs
   inputMainContainer: {
-    height: 100,
+    height: 80,
     width: '100%',
     gap: 20,
   },
 
   inputBox: {
-    height: 60,
-    borderWidth: 2,
+    height: 55,
+    borderWidth: 1,
     borderColor: '#a5a2a2',
-    borderRadius: 18,
+    borderRadius: 9,
     flexDirection: 'row',
   },
    
@@ -207,17 +207,17 @@ const styles = StyleSheet.create({
 
   // Buttons
   buttonsMainContainer: {
-    height: 70,
+    height: 60,
     width: '100%',
     gap: 10,
   },
 
   submitButton: {
-    height: 60,
+    height: 55,
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 8,
+    borderRadius: 9,
     backgroundColor:'#0857A0'
   },
 

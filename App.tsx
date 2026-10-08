@@ -20,6 +20,7 @@ import BrandScreenE from './src/ECommeerce/ScreenE/BarandScreen/BrandScreenE';
 import { ProductProvider } from './src/ECommeerce/Context/ProductContextApi';
 import { WishListProvider } from './src/ECommeerce/Context/WishListContext';
 import FreeTest from './src/core-Components/FreeTest';
+import { CartProvider } from './src/ECommeerce/Context/CartContextE';
 
 
 
@@ -52,12 +53,14 @@ const App = () => {
       
       <AuthProvider>
            <NavigationContainer>
+            <CartProvider>
               <WishListProvider>
                 <ProductProvider>
                      <RootNavigationE />                 
                </ProductProvider>   
 
               </WishListProvider>
+              </CartProvider>
 
                   
           </NavigationContainer>
@@ -66,7 +69,6 @@ const App = () => {
 
       {/* <FreeTest/> */}
 
-     
 
     
 
