@@ -3,14 +3,22 @@ import React from 'react'
 import MaterialDesignIcons from '@react-native-vector-icons/material-design-icons'
 import { useNavigation } from '@react-navigation/native'
 import { useWishList } from '../Context/WishListContext'
+import { useCart } from '../Context/CartContextE'
 
 const CategoriesCard = ({ products }) => {
+     const { cart, addToCart } =
+    useCart();
+
 
   const { isFavorite, addToWishList, deleteFromWishList } = useWishList();
 
 const alreadyFavorite = isFavorite.some(
   item => item.id === products.id
 );
+
+ const handleAddToCart = () => {
+    addToCart(products, 1);
+  };
 
 const handleFavorite = () => {
   console.log('entered handleFavorite');
@@ -111,20 +119,22 @@ const handleFavorite = () => {
         </View>
 
         {/* Add Button */}
-        <View style={styles.AddButtonContainer}>
+        <Pressable
+        onPress={handleAddToCart}
+         style={styles.AddButtonContainer}>
 
-          <Pressable
+          <View
             style={styles.AddButton}
-            onPress={() => console.log(`${products.productName} Plus pressed`)}
+           
           >
             <MaterialDesignIcons
               name="plus"
               size={25}
               color="white"
             />
-          </Pressable>
+          </View>
 
-        </View>
+        </Pressable>
 
       </View>
        

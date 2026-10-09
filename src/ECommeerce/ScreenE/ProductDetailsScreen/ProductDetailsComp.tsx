@@ -8,8 +8,10 @@ import { useNavigation } from '@react-navigation/native'
 
 import { useRoute } from '@react-navigation/native';
 import { useWishList } from '../../Context/WishListContext'
+import { useCart } from '../../Context/CartContextE'
 
 const ProductDetailsComp = () => {
+    const {cart , increaseQuantity, decreaseQuantity ,addToCart} = useCart();
    const route = useRoute();
    const { data } = route.params ;
 const navigation=useNavigation();
@@ -18,6 +20,7 @@ const navigation=useNavigation();
 
 
   const { isFavorite, addToWishList, deleteFromWishList } = useWishList();
+  
 
 const alreadyFavorite = isFavorite.some(
   item => item.id === data.id
@@ -246,7 +249,7 @@ const handleFavorite = () => {
                 
                      <Pressable
                                 style={styles.SubButton}
-                                onPress={() => console.log(` Sub pressed`)}
+                                onPress={()=>decreaseQuantity(data?.id)}
                               >
                                 <MaterialDesignIcons
                                   name="minus"
@@ -256,11 +259,11 @@ const handleFavorite = () => {
                               </Pressable>
 
                 
-                <Text style={styles.QuantityText}>2</Text>
+                <Text style={styles.QuantityText}>{cart.quantity}</Text>
                 
                      <Pressable
                                 style={styles.addButton}
-                                onPress={() => console.log(` Plus pressed`)}
+                                onPress={()=>increaseQuantity(data?.id)}
                               >
                                 <MaterialDesignIcons
                                   name="plus"
@@ -273,7 +276,9 @@ const handleFavorite = () => {
                 
 
             </View>
-            <View style={styles.AddToCartContainer}>
+            <Pressable
+           onPress={() => addToCart(data, 1)}
+            style={styles.AddToCartContainer}>
                  <View style={styles.CartImageContainer}>
                
                     <Image
@@ -286,7 +291,7 @@ const handleFavorite = () => {
                 <Text style={styles.addToCartText}>Add TO Cart</Text>
 
 
-            </View>
+            </Pressable>
 
         </View>
 
@@ -369,7 +374,7 @@ const styles = StyleSheet.create(
 
         },
     
-         /* ---------------- DISCOUNT ---------------- */
+         /*  DISCOUNT  */
 
         discountContainer: {
             height: 20,
@@ -387,7 +392,7 @@ const styles = StyleSheet.create(
             fontWeight: '500',
             alignSelf:'center'
         },
-        /* ---------------- PRICE ---------------- */
+        /*  PRICE  */
 
         PriceContainer: {
             marginTop: 8,

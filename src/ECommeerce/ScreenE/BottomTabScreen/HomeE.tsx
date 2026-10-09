@@ -20,88 +20,9 @@ const HomeE = () => {
   const {user} = useContext(AuthContext);
     const navigation=useNavigation();
 
-  // PRODUCT DATA
+ 
 
-  const ProductData = [
-    {
-      id: '1',
-      Categorie: 'Phone',
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '49%',
-      productName: 'iPhone 11 64GB',
-      companyName: 'Apple',
-      price: '$399',
-    },
-    {
-      id: '2',
-      Categorie: 'Shoes',
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '49%',
-      productName: 'Shoes of Nike',
-      companyName: 'Nike',
-      price: '$398',
-      cropePrice: '$599',
-    },
-    {
-      id: '3',
-      Categorie: 'Phone',
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '59%',
-      productName: 'iPhone 17 1TB',
-      companyName: 'Apple',
-      price: '$999',
-    },
-    {
-      id: '4',
-      Categorie: 'Shoes',
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '49%',
-      productName: 'Shoes of Bata',
-      companyName: 'Bata',
-      price: '$299',
-      cropePrice: '$499',
-    },
-    {
-      id: '5',
-      Categorie: 'Phone',
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '49%',
-      productName: 'iPhone 11 64GB',
-      companyName: 'Apple',
-      price: '$399',
-    },
-    {
-      id: '6',
-      Categorie: 'Shoes',
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '49%',
-      productName: 'Shoes of Nike',
-      companyName: 'Nike',
-      price: '$399',
-
-      cropePrice: '$599',
-    },
-    {
-      id: '7',
-      Categorie: 'Phone',
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '59%',
-      productName: 'iPhone 17 1TB',
-      companyName: 'Apple',
-      price: '$999',
-    },
-    {
-      id: '8',
-      Categorie: 'Shoes',
-      image: require('../../AssetsE/Img/ComponentImg/Phone.png'),
-      discount: '49%',
-      productName: 'Shoes of Bata',
-      companyName: 'Bata',
-      price: '$299',
-      cropePrice: '$499',
-    },
-  ]
-
+ 
   //  BANNER DATA
 
   const BannerData = [
@@ -243,18 +164,21 @@ const HomeE = () => {
 
             <View style={styles.cartNotificationConatiner}>
 
-              <View style={styles.CartImageContainer}>
+              <Pressable
+              onPress={()=>{navigation.navigate("Cart")}}
+               style={styles.CartImageContainer}>
 
                 <Image
                   style={styles.cartImage}
                   source={require('../../AssetsE/Img/Homepage/shoppingBag.png')}
                 />
 
-              </View>
+              </Pressable>
 
               {/* Notification */}
 
               <View style={styles.NotificationConatiner} />
+          
 
             </View>
 
@@ -508,6 +432,7 @@ const styles = StyleSheet.create({
     width: 40,
     marginLeft: 189,
     marginTop: 15,
+    zIndex:5
   },
 
   cartImage: {

@@ -29,7 +29,7 @@ const [products, setProducts] = useState([
     description:
       'Apple iPhone 11 with 64GB storage, powerful performance and an excellent camera.',
     isFavorite: false,
-    quantity: 1,
+    quantity: 5,
     inCart: false,
   },
 
